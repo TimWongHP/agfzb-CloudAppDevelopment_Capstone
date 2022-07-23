@@ -5,7 +5,7 @@ on: workflow_dispatch
 # Environment variables available to all jobs and steps in this workflow
 env:
   IBM_CLOUD_REGION: au-syd
-  IBM_CLOUD_GROUP: TIMOTHY WONG
+  IBM_CLOUD_GROUP: Default
   IBM_CLOUD_SPACE: Space
   IBM_CLOUD_ORG: Developing_Cloud_Native_Applications
   MANIFEST_NAME: manifest.yml

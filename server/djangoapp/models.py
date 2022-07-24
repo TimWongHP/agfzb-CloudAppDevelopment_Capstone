@@ -28,8 +28,9 @@ class CarMake(models.Model):
 # - __str__ method to print a car make object
 class CarModel(models.Model):
     make = models.ForeignKey(CarMake, null=False, on_delete=models.CASCADE)  
-    name = models.CharField(null=False, max_length=40, default='undefined')
-    dealer_id = models.IntegerField(null=True)    
+    name = models.CharField(null=False, max_length=40)
+    dealer_id = models.IntegerField(null=True)
+    
     SEDAN = 'Sedan'
     SUV = 'SUV'
     WAGON = 'Wagon'
@@ -48,15 +49,17 @@ class CarModel(models.Model):
         (CONVERTIBLE, 'Convertible'),
         (MINIVAN, 'Minivan'),   
     ]
+    
     type = models.CharField(
         null=False,
         max_length=20,
         choices=TYPE_CHOICES,
         default=WAGON
     )
+    
     year = models.DateTimeField('date designed')
     def __str__(self):
-        return self.type
+        return self.name + ", " + str(self.year) + ", " + self.type
 
 # <HINT> Create a plain Python class `CarDealer` to hold dealer data
 class CarDealer:
@@ -74,7 +77,7 @@ class CarDealer:
         self.idx = 0
 
     def __str__(self):
-        return "Dealer name: " + self.full_name
+        return "Dealer name: " + self.full_name + " located at " + self.address
 
 # <HINT> Create a plain Python class `DealerReview` to hold review data
 class DealerReview:

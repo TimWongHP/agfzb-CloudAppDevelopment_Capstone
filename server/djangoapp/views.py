@@ -13,11 +13,6 @@ import json
 # Get an instance of a logger
 logger = logging.getLogger(__name__)
 
-
-# Create your views here.
-def home(request):
-    return render(request, 'djangoapp/index.html')
-
 # Create an `about` view to render a static about page
 # def about(request):
 def about(request):
@@ -84,7 +79,7 @@ def registration_request(request):
 def get_dealerships(request):
     if request.method == "GET":
         context = {}
-        url = "https://32f7628c-41d3-4ae1-9aec-9f0f3cf32569-bluemix.cloudantnosqldb.appdomain.cloud/dealership"
+        url = "https://32f7628c-41d3-4ae1-9aec-9f0f3cf32569-bluemix.cloudantnosqldb.appdomain.cloud/api/dealership"
         dealerships = get_dealers_from_cf(url)
         dealer_names = ' '.join([dealer.short_name for dealer in dealerships])
         context['dealer_names'] = dealer_names
@@ -95,7 +90,7 @@ def get_dealerships(request):
 def get_dealer_details(request, dealer_id):
     context = {}
     if request.method == "GET":
-        url = 'https://32f7628c-41d3-4ae1-9aec-9f0f3cf32569-bluemix.cloudantnosqldb.appdomain.cloud/dealership'
+        url = 'https://32f7628c-41d3-4ae1-9aec-9f0f3cf32569-bluemix.cloudantnosqldb.appdomain.cloud/api/review'
         reviews = get_dealer_reviews_from_cf(url, dealer_id=dealer_id)
         context = {
             "reviews":  reviews,
@@ -133,6 +128,6 @@ def add_review(request, dealer_id):
             review['review']['id'] = userr.id
             review['review']["name"] = userr.first_name + " " + userr.last_name
 
-            url = 'https://32f7628c-41d3-4ae1-9aec-9f0f3cf32569-bluemix.cloudantnosqldb.appdomain.cloud/dealership'
+            url = 'https://32f7628c-41d3-4ae1-9aec-9f0f3cf32569-bluemix.cloudantnosqldb.appdomain.cloud/api/review'
             post_request(url, review, dealerId=dealer_id)
             return redirect("djangoapp:dealer_details", dealer_id=dealer_id)

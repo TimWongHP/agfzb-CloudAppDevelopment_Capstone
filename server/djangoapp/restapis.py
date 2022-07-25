@@ -105,14 +105,14 @@ def get_dealer_reviews_from_cf(url, dealer_id):
 
             try:
                 # These values may be missing
-                make = review["make"]
+                car_make = review["car_make"]
                 car_model = review["car_model"]
                 car_year = review["car_year"]
                 purchase_date = review["purchase_date"]
 
                 # Creating a review object
                 review_obj = DealerReview(dealership=dealership, id=id, name=name,
-                                          purchase=purchase, review=review_content, make=make,
+                                          purchase=purchase, review=review_content, car_make=car_make,
                                           car_model=car_model, car_year=car_year, purchase_date=purchase_date
                                           )
 

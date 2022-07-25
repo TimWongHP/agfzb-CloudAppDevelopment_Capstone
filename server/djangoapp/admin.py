@@ -14,8 +14,8 @@ class CarMakeAdmin(admin.ModelAdmin):
 
 # CarModelAdmin class
 class CarModelAdmin(admin.ModelAdmin):
-    list_display = ['make', 'name', 'dealer_id', 'type', 'year']
-    list_filter = ['type', 'make', 'dealer_id', 'year',]
+    list_display = ['car_make', 'name', 'dealer_id', 'model_type', 'year']
+    list_filter = ['model_type', 'car_make', 'dealer_id', 'year',]
     search_fields = ['car_make', 'name']
 
 # Register models here

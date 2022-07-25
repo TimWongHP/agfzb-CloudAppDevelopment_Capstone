@@ -68,7 +68,7 @@
                             </label>
                         </div><br/>
     
-                        <label class="text-warning">If purhcased, please give us more information:</label><br/>
+                        <label class="text-warning">If car has been purchased, please provide us with more information:</label><br/>
                         <label for="car_make">Car Make</label>
                         <input name="car_make" class="form-control" type="text" placeholder="Mercedes-Benz">
                         <label for="car_model">Car Model</label>
@@ -94,7 +94,7 @@
             </form>
     
         {% else %}
-            <a class="btn btn-outline-primary mx-5 my-5" href="{% url 'djangoapp:register' %}">Sign up to Review</a>
+            <a class="btn btn-outline-primary mx-5 my-5" href="{% url 'djangoapp:register' %}">Sign up to Review Now</a>
         {% endif %}
     </body>
 </html>

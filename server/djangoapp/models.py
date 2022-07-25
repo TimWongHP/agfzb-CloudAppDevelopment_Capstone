@@ -27,7 +27,7 @@ class CarMake(models.Model):
 # - Any other fields you would like to include in car model
 # - __str__ method to print a car make object
 class CarModel(models.Model):
-    car_make = models.ForeignKey(CarMake, null=False, on_delete=models.CASCADE)  
+    car_make = models.ForeignKey(CarMake, null=True, on_delete=models.CASCADE)  
     name = models.CharField(null=False, max_length=40)
     dealer_id = models.IntegerField(null=True)
     
